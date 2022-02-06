@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap/'
 import logoRosa from '../../assets/icons/logoRosa.png'
+import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.css'
 
 const NavBar = () => {
@@ -11,8 +12,6 @@ const NavBar = () => {
                         <img
                             alt="Logo Luluchi Eco"
                             src={logoRosa}
-                            width="auto"
-                            height="40"
                             className="d-inline-block align-top"
                         />
                     </Navbar.Brand>
@@ -22,6 +21,7 @@ const NavBar = () => {
                             <Nav.Link href="#inicio">Inicio</Nav.Link>
                             <Nav.Link href="#tienda">Tienda</Nav.Link>
                             <Nav.Link href="#contacto">Contacto</Nav.Link>
+                            <Nav.Link href="#carrito"><CartWidget/></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
