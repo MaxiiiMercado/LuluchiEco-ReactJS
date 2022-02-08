@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap/'
 import logoRosa from '../../assets/icons/logoRosa.png'
 import CartWidget from '../CartWidget/CartWidget'
-import './NavBar.css'
+import './NavBar.scss'
 
 const NavBar = () => {
     return (
@@ -9,11 +9,7 @@ const NavBar = () => {
             <Navbar expand="md">
                 <Container>
                     <Navbar.Brand href="#inicio">
-                        <img
-                            alt="Logo Luluchi Eco"
-                            src={logoRosa}
-                            className="d-inline-block align-top"
-                        />
+                        <img alt="Logo Luluchi Eco" src={logoRosa} className="d-inline-block align-top logoNav" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

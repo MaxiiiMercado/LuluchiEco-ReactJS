@@ -1,0 +1,15 @@
+
+.containerTienda{
+    width: 100%;
+    padding: 50px 0;
+    padding-bottom: 20px;
+    background-color: #f5eeee;
+    text-align: center;
+  }
+  
+  .productos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin: 0 1.5rem;
+  }
