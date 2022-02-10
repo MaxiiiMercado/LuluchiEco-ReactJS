@@ -3,14 +3,16 @@ import ItemCount from "../ItemCount/ItemCount"
 import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
+    console.log(greeting)
     const addItem = quantity => {
         alert(`Se han agregado ${quantity} productos`)
     }
 
     const [items, setItems] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-
+        setIsLoading(true)
         const loadProducts = new Promise((resolve, reject) => {
 
             setTimeout(() => {
@@ -24,9 +26,14 @@ const ItemListContainer = ({ greeting }) => {
 
         loadProducts.then(data => {
             setItems(data)
+            setIsLoading(false)
         })
 
-    })
+    }, [])
+
+    if (isLoading){
+        return <h1>Cargando...</h1>
+    }
 
     return (
         <>

@@ -1,0 +1,27 @@
+$verde: #6e8f6e;
+
+.contadores{
+    margin: 10px;
+    button{
+        width: 40px;
+        height: 40px;
+        margin: 0 20px;
+    }
+    span{
+        font-weight: bold;
+        font-size: 20px;
+    }
+}
+
+button {
+    border-color: $verde;
+    background-color: $verde;
+}
+
+.agregar{
+    width: 150px;
+}
+
+button:hover{
+    box-shadow: 0px 0px 5px 5px #3f3b3e;
+}

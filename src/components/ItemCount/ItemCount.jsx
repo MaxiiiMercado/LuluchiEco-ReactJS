@@ -1,6 +1,7 @@
 import { useState } from "react"
+import './itemCount.scss'
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd, dataId }) => {
     const [counter, setCounter] = useState(initial);
 
     const addItem = () => {
@@ -12,14 +13,17 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
 
     return (
-        <div>
-            <button disabled={counter === 1} onClick={substractItem}>-</button>
-            {counter}
-            <button disabled={counter === stock} onClick={addItem}>+</button>
-            <div>
-                <button onClick={() => onAdd(counter)}>Agregar</button>
+        <>
+            <div className="contadores">
+                <button className="btn btn-success" disabled={counter === 1} onClick={substractItem}>-</button>
+                <span>{counter}</span>
+                <button className="btn btn-success" disabled={counter === stock} onClick={addItem}>+</button>
             </div>
-        </div>
+
+            <button className="btn btn-success agregar" onClick={() => onAdd(counter)} data-id={dataId}>
+                Añadir
+            </button>
+        </>
     )
 }
 
