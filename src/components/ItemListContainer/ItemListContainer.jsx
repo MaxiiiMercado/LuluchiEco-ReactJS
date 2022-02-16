@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import ItemCount from "../ItemCount/ItemCount"
 import ItemList from "../ItemList/ItemList";
+import Products from "../../productos.json";
+import imgCargando from "../../assets/icons/cargando.gif"
+import { useParams } from 'react-router';
 
-const ItemListContainer = ({ greeting }) => {
-    console.log(greeting)
-    const addItem = quantity => {
-        alert(`Se han agregado ${quantity} productos`)
-    }
+const ItemListContainer = () => {
+    const {itemCategory} = useParams()
 
     const [items, setItems] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -16,32 +15,33 @@ const ItemListContainer = ({ greeting }) => {
         const loadProducts = new Promise((resolve, reject) => {
 
             setTimeout(() => {
-                resolve([
-                    { product_image: "/images/orinal.jpg", product_name: "Orinal Femenino", product_price: "1000", product_id: "1" },
-                    { product_image: "/images/cepillo.jpg", product_name: "Cepillo de Bambú ", product_price: "350", product_id: "2" },
-                    { product_image: "/images/shampoo.jpg", product_name: "Shampoo solido", product_price: "500", product_id: "3" },
-                ])
+                resolve(Products)
             }, 2000)
         })
 
         loadProducts.then(data => {
-            setItems(data)
+            setItems(data.filter( product => {
+                if (product.category === itemCategory)
+                    return product
+                return null
+            }))
             setIsLoading(false)
         })
 
-    }, [])
+    }, [itemCategory])
 
     if (isLoading){
-        return <h1>Cargando...</h1>
+        return(
+            <div className='d-flex flex-row justify-content-center'>
+                <img src={imgCargando} alt="cargando"/>
+            </div>
+        ) 
     }
 
     return (
         <>
-            <h1>{greeting}</h1>
-
             <ItemList products={items} />
 
-            <ItemCount stock={10} initial={1} onAdd={addItem} />
         </>
     )
 }

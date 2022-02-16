@@ -1,15 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-//import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
+import Main from './components/Main/Main';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const App = () => {
   return (
-    <>
+    <Router>
       <NavBar/>
-      {/*<ItemListContainer greeting="Saludos desde App.jsx"/>*/}
-      <ItemDetailContainer/>
-    </>
+      <Main/>
+    </Router>
   )
 }
 

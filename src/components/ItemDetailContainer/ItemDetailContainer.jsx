@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from "../ItemDetail/ItemDetail";
 import Skeleton from '@mui/material/Skeleton';
+import Products from '../../productos.json'
 import './itemDetailContainer.scss'
+import { useParams } from 'react-router';
 
 const ItemDetailContainer = () => {
+    const {itemId} = useParams();
 
     const [item, setItem] = useState({})
     const [isLoading, setIsLoading] = useState(false)
@@ -13,36 +16,16 @@ const ItemDetailContainer = () => {
         const loadProduct = new Promise((resolve, reject) => {
 
             setTimeout(() => {
-                resolve(
-                    {
-                        image: "/images/cepillo1.jpg", title: "Cepillo De Dientes Ecológico Meraki", price: 300, category: "Salud", id: "1", stock: 15,
-                        paragraphs: ["Los cepillos de bambú tienen la misma vida útil que los cepillos de dientes convencionales fabricados con plástico.",
-                            "El bambú es una de las plantas con mayor tasa de crecimiento del mundo. En su proceso de crecimiento secuestra grandes cantidades de CO2, gas de efecto invernadero. Además, contiene agentes antibacterianos de origen natural, por lo que no requieren fertilizantes ni pesticidas para crecer."],
-                        list: ["Marca: Meraki",
-                            "97% biodegradables - 3% reciclable",
-                            "Dureza de las cerdas: Medio",
-                            "El packaging y mango pueden ser compostados."]
-
-                        /*description: {
-                            parrafos: ["Los cepillos de bambú tienen la misma vida útil que los cepillos de dientes convencionales fabricados con plástico.",
-                                "El bambú es una de las plantas con mayor tasa de crecimiento del mundo. En su proceso de crecimiento secuestra grandes cantidades de CO2, gas de efecto invernadero. Además, contiene agentes antibacterianos de origen natural, por lo que no requieren fertilizantes ni pesticidas para crecer."],
-
-                            lista: ["Marca: Meraki", 
-                                "97% biodegradables - 3% reciclable",
-                                "Dureza de las cerdas: Medio",
-                                "El packaging y mango pueden ser compostados."]
-                        }*/
-                    }
-                )
+                resolve(Products)
             }, 2000)
         })
 
         loadProduct.then(data => {
-            setItem(data)
+            setItem(data.find( (product) => product.id === itemId))
             setIsLoading(false)
         })
 
-    }, [])
+    }, [itemId])
 
     if (isLoading) {
         return (

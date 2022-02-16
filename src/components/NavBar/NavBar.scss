@@ -4,11 +4,19 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: #ffbdbd;
     display: flex;
     align-items: center;
     font-size: 20px;
-    margin: auto 10px;
+    margin: auto 20px;
+}
+
+.navbar-light .navbar-nav .nav-link a {
+    text-decoration: none;
+    color: #ffbdbd;
+}
+
+.navbar-light .navbar-nav .nav-link a:hover {
+    color: #d4a4a4;
 }
 
 .logoNav{

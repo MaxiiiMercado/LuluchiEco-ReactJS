@@ -16,22 +16,8 @@ const ItemDetail = ({ product }) => {
                         <Carousel.Item>
                             <img
                                 className="d-block"
-                                src={product.image}
+                                src={`http://drive.google.com/uc?export=view&id=${product.images}`}
                                 alt="First slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block"
-                                src={product.image}
-                                alt="Second slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block"
-                                src={product.image}
-                                alt="Third slide"
                             />
                         </Carousel.Item>
                     </Carousel>
@@ -52,12 +38,9 @@ const ItemDetail = ({ product }) => {
                         </div>
                         <div>
                             <ul>
-                                {product.list}
+                                <li>{product.lists}</li>
                             </ul>
                         </div>
-                        {/*
-                            {product.paragraphs.map(parahraph => <p>{parahraph}</p>)}
-                        */}
                     </div>
 
 
@@ -66,7 +49,7 @@ const ItemDetail = ({ product }) => {
                     </div>
 
                     <div className="producto__cantidad">
-                        <ItemCount stock={product.stock} initial={1} onAdd={addItem} dataId={product.id} />
+                        <ItemCount stock={product.stock} initial={product.stock > 0 ? 1:0} onAdd={addItem} dataId={product.id} />
                     </div>
 
                 </article>

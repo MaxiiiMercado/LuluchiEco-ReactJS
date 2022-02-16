@@ -15,12 +15,12 @@ const ItemCount = ({ stock, initial, onAdd, dataId }) => {
     return (
         <>
             <div className="contadores">
-                <button className="btn btn-success" disabled={counter === 1} onClick={substractItem}>-</button>
+                <button className="btn btn-success" disabled={counter === 1 || initial === 0} onClick={substractItem}>-</button>
                 <span>{counter}</span>
-                <button className="btn btn-success" disabled={counter === stock} onClick={addItem}>+</button>
+                <button className="btn btn-success" disabled={counter === stock || initial === 0} onClick={addItem}>+</button>
             </div>
 
-            <button className="btn btn-success agregar" onClick={() => onAdd(counter)} data-id={dataId}>
+            <button className="btn btn-success agregar" disabled={initial === 0}onClick={() => onAdd(counter)} data-id={dataId}>
                 Añadir
             </button>
         </>
