@@ -5,7 +5,7 @@ $verde: #6e8f6e;
     button{
         width: 40px;
         height: 40px;
-        margin: 0 20px;
+        margin: 0 10px;
     }
     span{
         font-weight: bold;
@@ -16,6 +16,7 @@ $verde: #6e8f6e;
 button {
     border-color: $verde;
     background-color: $verde;
+    margin: 0 10px;
 }
 
 .agregar{

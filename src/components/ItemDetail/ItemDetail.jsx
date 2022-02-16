@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Carousel } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import "./itemDetail.scss";
 
 const ItemDetail = ({ product }) => {
+    const [itemQuantity, setItemQuantity] = useState(0)
+
     const addItem = quantity => {
-        alert(`Se han agregado ${quantity} productos`)
+        setItemQuantity(quantity)
+        console.log(itemQuantity)
     }
 
     return (

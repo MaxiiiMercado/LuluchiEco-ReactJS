@@ -31,7 +31,9 @@ const NavBar = () => {
                             <Nav.Link>
                                 <Link to={`/category/sinplastico`}>Sin plastico</Link>
                             </Nav.Link>
-                            <Nav.Link><CartWidget /></Nav.Link>
+                            <Nav.Link>
+                                <Link to="/cart"><CartWidget /></Link>
+                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
