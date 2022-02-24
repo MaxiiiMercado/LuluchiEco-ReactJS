@@ -2,7 +2,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap/'
 import logoRosa from '../../assets/icons/logoRosa.png'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.scss'
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import ItemDetail from "../ItemDetail/ItemDetail";
-import Skeleton from '@mui/material/Skeleton';
+import ItemDetail from '../ItemDetail/ItemDetail'
+import Skeleton from '@mui/material/Skeleton'
 import Products from '../../productos.json'
 import './itemDetailContainer.scss'
-import { useParams } from 'react-router';
+import { useParams } from 'react-router'
 
 const ItemDetailContainer = () => {
     const {itemId} = useParams();

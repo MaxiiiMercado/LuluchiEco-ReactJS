@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState } from 'react'
 import './itemCount.scss'
 
 const ItemCount = ({ stock, initial, onAdd, dataId }) => {
-    const [counter, setCounter] = useState(initial);
+    const [counter, setCounter] = useState(initial)
 
     const addItem = () => {
         setCounter(counter + 1)
@@ -23,7 +23,6 @@ const ItemCount = ({ stock, initial, onAdd, dataId }) => {
             <button className="btn btn-success agregar" disabled={initial === 0}onClick={() => onAdd(counter)} data-id={dataId}>
                 Añadir
             </button>
-            
         </>
     )
 }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import ItemList from "../ItemList/ItemList";
-import Products from "../../productos.json";
-import imgCargando from "../../assets/icons/cargando.gif"
-import { useParams } from 'react-router';
+import ItemList from '../ItemList/ItemList'
+import Products from '../../productos.json'
+import imgCargando from '../../assets/icons/cargando.gif'
+import { useParams } from 'react-router'
 
 const ItemListContainer = () => {
     const {itemCategory} = useParams()
@@ -27,8 +27,9 @@ const ItemListContainer = () => {
                     return null
                 }))
             }
-            else
+            else{
                 setItems(data)
+            }
             
             setIsLoading(false)
         })

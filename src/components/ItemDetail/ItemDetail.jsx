@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
-import ItemCount from '../ItemCount/ItemCount';
-import "./itemDetail.scss";
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Carousel } from 'react-bootstrap'
+import ItemCount from '../ItemCount/ItemCount'
+import './itemDetail.scss'
+import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
 const ItemDetail = ({ product }) => {
     const [itemQuantity, setItemQuantity] = useState(0)
+    const { addItem } = useContext(CartContext)
 
-    const addItem = quantity => {
+    const addItemToCart = quantity => {
+        addItem(product, quantity)
         setItemQuantity(quantity)
-        console.log(itemQuantity)
     }
 
     return (
@@ -55,7 +58,7 @@ const ItemDetail = ({ product }) => {
                     <div className="producto__cantidad">
                         {
                             itemQuantity === 0 ?
-                                <ItemCount stock={product.stock} initial={product.stock > 0 ? 1 : 0} onAdd={addItem} dataId={product.id} />
+                                <ItemCount stock={product.stock} initial={product.stock > 0 ? 1 : 0} onAdd={addItemToCart} dataId={product.id} />
                                 : <Link to="/cart">
                                     <button className="btn btn-success agregar">
                                         Ir al carrito
