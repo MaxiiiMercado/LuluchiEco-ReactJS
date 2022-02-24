@@ -23,6 +23,9 @@ const NavBar = () => {
                                 </NavLink>
                             </Nav.Link>
                             <Nav.Link>
+                                <Link to="/products">Catalogo</Link>
+                            </Nav.Link>
+                            <Nav.Link>
                                 <Link to={`/category/salud`}>Salud</Link>
                             </Nav.Link>
                             <Nav.Link>

@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import "./itemDetail.scss";
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ product }) => {
     const [itemQuantity, setItemQuantity] = useState(0)
@@ -52,7 +53,15 @@ const ItemDetail = ({ product }) => {
                     </div>
 
                     <div className="producto__cantidad">
-                        <ItemCount stock={product.stock} initial={product.stock > 0 ? 1:0} onAdd={addItem} dataId={product.id} />
+                        {
+                            itemQuantity === 0 ?
+                                <ItemCount stock={product.stock} initial={product.stock > 0 ? 1 : 0} onAdd={addItem} dataId={product.id} />
+                                : <Link to="/cart">
+                                    <button className="btn btn-success agregar">
+                                        Ir al carrito
+                                    </button>
+                                </Link>
+                        }
                     </div>
 
                 </article>

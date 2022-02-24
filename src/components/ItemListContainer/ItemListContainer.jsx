@@ -20,11 +20,16 @@ const ItemListContainer = () => {
         })
 
         loadProducts.then(data => {
-            setItems(data.filter( product => {
-                if (product.category === itemCategory)
-                    return product
-                return null
-            }))
+            if (itemCategory){
+                setItems(data.filter( product => {
+                    if (product.category === itemCategory)
+                        return product
+                    return null
+                }))
+            }
+            else
+                setItems(data)
+            
             setIsLoading(false)
         })
 
@@ -41,7 +46,6 @@ const ItemListContainer = () => {
     return (
         <>
             <ItemList products={items} />
-
         </>
     )
 }
