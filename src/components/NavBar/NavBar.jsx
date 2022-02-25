@@ -3,8 +3,13 @@ import logoRosa from '../../assets/icons/logoRosa.png'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.scss'
 import { NavLink, Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
 const NavBar = () => {
+
+    const { totalItems } = useContext(CartContext)
+
     return (
         <header>
             <Navbar expand="md">
@@ -34,9 +39,13 @@ const NavBar = () => {
                             <Nav.Link>
                                 <Link to={`/category/sinplastico`}>Sin plastico</Link>
                             </Nav.Link>
-                            <Nav.Link>
-                                <Link to="/cart"><CartWidget /></Link>
-                            </Nav.Link>
+                            {
+                                totalItems !== 0?
+                                    <Nav.Link>
+                                        <Link to="/cart"><CartWidget /></Link>
+                                    </Nav.Link>
+                                : null
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
