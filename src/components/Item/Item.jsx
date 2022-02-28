@@ -1,6 +1,7 @@
 import React from 'react'
 import './item.scss'
 import {Link} from 'react-router-dom'
+import img404 from '../../assets/icons/img404.png'
 
 const Item = ({ item }) => {
     return (
@@ -12,7 +13,7 @@ const Item = ({ item }) => {
             <div className="producto__borde"></div>
 
             <div className='producto__img'>
-                <img src={`http://drive.google.com/uc?export=view&id=${item.images}`} alt={"Imagen" + item.name}/>
+                <img src={item.images ? `http://drive.google.com/uc?export=view&id=${item.images[0]}`: img404} alt={"Imagen" + item.name}/>
             </div>
 
             <div className="producto__precio">

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import './cart.scss';
 import emptyCart from '../../assets/icons/carritoVacio.png'
+import img404 from '../../assets/icons/img404.png'
 
 const Cart = () => {
 
@@ -23,7 +24,7 @@ const Cart = () => {
                             cart.map(cartItem =>
                                 <div key={cartItem.id} className="itemCarrito">
                                     <div className="itemCarrito__imagen">
-                                        <img src={`http://drive.google.com/uc?export=view&id=${cartItem.images}`} alt={cartItem.id} />
+                                        <img src={cartItem.images ? `http://drive.google.com/uc?export=view&id=${cartItem.images[0]}`: img404} alt={cartItem.id} />
                                     </div>
                                     <div className="itemCarrito__titulo">
                                         <span>{cartItem.name}</span>

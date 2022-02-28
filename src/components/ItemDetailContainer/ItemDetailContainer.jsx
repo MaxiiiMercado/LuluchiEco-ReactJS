@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import Skeleton from '@mui/material/Skeleton'
-import Products from '../../productos.json'
 import './itemDetailContainer.scss'
 import { useParams } from 'react-router'
+import { dataBase } from '../../firebase/Config'
+import { collection, query, where, getDocs, documentId } from  'firebase/firestore'
 
 const ItemDetailContainer = () => {
-    const {itemId} = useParams();
+    const {itemId} = useParams()
 
     const [item, setItem] = useState({})
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        setIsLoading(true)
-        const loadProduct = new Promise((resolve, reject) => {
-
-            setTimeout(() => {
-                resolve(Products)
-            }, 2000)
-        })
-
-        loadProduct.then(data => {
-            setItem(data.find( (product) => product.id === itemId))
+        const getItemDetail = async () => {
+            const q = query(collection(dataBase, "products"), where(documentId(), "==", itemId))
+            const querySnapshot = await getDocs(q)
+            const getItem = []
+            querySnapshot.forEach(prod => {
+                getItem.push({...prod.data(), id: prod.id})
+            })
+            setItem(getItem[0])
             setIsLoading(false)
-        })
+        }
+
+        getItemDetail()
 
     }, [itemId])
 

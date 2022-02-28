@@ -2,7 +2,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap/'
 import logoRosa from '../../assets/icons/logoRosa.png'
 import CartWidget from '../CartWidget/CartWidget'
 import './NavBar.scss'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
@@ -22,28 +22,14 @@ const NavBar = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link>
-                                <NavLink to="/">
-                                    Inicio
-                                </NavLink>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link to="/products">Catalogo</Link>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link to={`/category/salud`}>Salud</Link>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link to={`/category/higiene`}>Higiene</Link>
-                            </Nav.Link>
-                            <Nav.Link>
-                                <Link to={`/category/sinplastico`}>Sin plastico</Link>
-                            </Nav.Link>
+                                <NavLink className='nav-link' to="/">Inicio</NavLink>
+                                <NavLink className='nav-link' to="/products">Catalogo</NavLink>
+                                <NavLink className='nav-link' to={`/category/salud`}>Salud</NavLink>
+                                <NavLink className='nav-link' to={`/category/higiene`}>Higiene</NavLink>
+                                <NavLink className='nav-link' to={`/category/sinplastico`}>Sin plastico</NavLink>
                             {
                                 totalItems !== 0?
-                                    <Nav.Link>
-                                        <Link to="/cart"><CartWidget /></Link>
-                                    </Nav.Link>
+                                        <NavLink className='nav-link' to="/cart"><CartWidget /></NavLink>
                                 : null
                             }
                         </Nav>

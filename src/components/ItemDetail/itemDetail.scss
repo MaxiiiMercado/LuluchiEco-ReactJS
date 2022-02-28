@@ -57,6 +57,13 @@ $verde: #6e8f6e;
                     font-size: 18px;
                 }
             }
+            .lista{
+                ul{
+                    padding-left: 0; 
+                    list-style-position: inside;
+                }
+               
+            }
         }
 
         .producto__precio {

@@ -20,13 +20,17 @@ const ItemDetail = ({ product }) => {
             <div className="detalleGaleria">
                 <div className="galeriaCarousel">
                     <Carousel>
-                        <Carousel.Item>
-                            <img
-                                className="d-block"
-                                src={`http://drive.google.com/uc?export=view&id=${product.images}`}
-                                alt="First slide"
-                            />
-                        </Carousel.Item>
+                        {
+                            product.images?.map((element, i) =>
+                                <Carousel.Item key={i}>
+                                    <img
+                                        className="d-block"
+                                        src={`http://drive.google.com/uc?export=view&id=${element}`}
+                                        alt="First slide"
+                                    />
+                                </Carousel.Item>
+                            )
+                        }
                     </Carousel>
                 </div>
             </div>
@@ -41,11 +45,19 @@ const ItemDetail = ({ product }) => {
 
                     <div className="producto__descripcion">
                         <div className="parrafos">
-                            <p>{product.paragraphs}</p>
+                            {
+                                product.paragraphs?.map((element, i) =>
+                                    <p key={i}>{element}</p>
+                                )
+                            }
                         </div>
-                        <div>
+                        <div className='lista'>
                             <ul>
-                                <li>{product.lists}</li>
+                                {
+                                    product.list?.map((element, i) =>
+                                        <li key={i}>{element}</li>
+                                    )
+                                }
                             </ul>
                         </div>
                     </div>

@@ -6,22 +6,20 @@ const { Provider } = CartContext
 const CartProvider = ({ children }) => {
 
     const [cart, setCart] = useState([])
-    const [totalItems, setTotalItems] = useState(0);
-    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalItems, setTotalItems] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
-        if (cart.length === 1){
-            setTotalItems(cart[0].quantity)
-            setTotalPrice(cart[0].quantity * cart[0].price)
+        let cantItems = 0
+        let priceItems = 0
+        if (cart.length) {
+            cart.forEach(prod => {
+                cantItems += prod.quantity
+                priceItems += prod.quantity * prod.price
+            })
         }
-        else if (cart.length >= 2){
-            setTotalItems(cart.reduce( (itemA,itemB) => itemA.quantity + itemB.quantity))
-            setTotalPrice(cart.reduce( (itemA,itemB) => (itemA.price*itemA.quantity) + (itemB.price*itemB.quantity)))
-        }
-        else{
-            setTotalItems(0)
-            setTotalPrice(0)
-        }
+        setTotalItems(cantItems)
+        setTotalPrice(priceItems)
 
     }, [cart])
 
