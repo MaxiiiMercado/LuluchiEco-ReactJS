@@ -70,7 +70,7 @@ const ItemDetail = ({ product }) => {
                     <div className="producto__cantidad">
                         {
                             itemQuantity === 0 ?
-                                <ItemCount stock={product.stock} initial={product.stock > 0 ? 1 : 0} onAdd={addItemToCart} dataId={product.id} />
+                                <ItemCount stock={product.stock} initial={1} onAdd={addItemToCart} dataId={product.id} />
                                 : <Link to="/cart">
                                     <button className="btn btn-success agregar">
                                         Ir al carrito

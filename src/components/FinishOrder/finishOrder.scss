@@ -1,0 +1,25 @@
+.form{
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.inputContainer{
+    width: 30%;
+}
+.formButton{
+    background-color: rgb(253, 184, 161);
+    border: 1px solid darksalmon;
+    color: black;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: 0.3rem;
+}
+
+h3 a{
+    text-decoration: none;
+    color: #6e8f6e;
+}

@@ -3,6 +3,7 @@ import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
 import {Routes, Route} from 'react-router-dom'
 import Home from '../Home/Home'
 import Cart from '../Cart/Cart'
+import FinishOrder from '../FinishOrder/FinishOrder'
 
 const Main = () => {
     return (
@@ -13,6 +14,7 @@ const Main = () => {
                 <Route path="/category/:itemCategory" element={<ItemListContainer/>} />
                 <Route path="/item/:itemId" element={<ItemDetailContainer/>}/>
                 <Route path="/cart" element={<Cart/>}/>
+                <Route path="/order" element={<FinishOrder/>}/>
             </Routes>
         </main>
     )
